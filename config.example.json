@@ -1,0 +1,16 @@
+{
+  "remote": {
+    "enabled": false,
+    "smb_url": "smb://nas.local/Share/",
+    "path": "/mnt/vr-videos"
+  },
+  "desktop": {
+    "encoder": "auto",
+    "content_hint": "auto",
+    "degradation_preference": "maintain-resolution",
+    "width": 1920,
+    "height": 1080,
+    "fps": 60,
+    "bitrate_mbps": 16
+  }
+}
