@@ -5,6 +5,8 @@ Linux native Local WebXR video server for watching side-by-side VR videos in a Q
 ## Install
 
 ```bash
+git clone https://github.com/thongraegu/vrvideopump.git
+cd vrvideopump
 python -m venv .venv
 source .venv/bin/activate
 pip install -e .
