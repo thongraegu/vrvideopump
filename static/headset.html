@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VR Video Pump Headset</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "/static/vendor/three/three.module.js",
+          "three/addons/": "/static/vendor/three/addons/"
+        }
+      }
+    </script>
+  </head>
+  <body class="headset-body">
+    <div id="viewer"></div>
+    <div id="overlay" class="headset-overlay">
+      <div>
+        <h1>VR Video Pump</h1>
+        <p id="status">Waiting for control page</p>
+        <pre id="diagnostics" class="diagnostics"></pre>
+      </div>
+      <div class="headset-actions">
+        <button id="start" type="button">Start Video</button>
+        <button id="startDesktop" type="button">Desktop</button>
+        <button id="enterVr" type="button">Enter VR</button>
+      </div>
+    </div>
+
+    <script type="module" src="/static/headset.js?v=61"></script>
+  </body>
+</html>

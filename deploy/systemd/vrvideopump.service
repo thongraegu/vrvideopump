@@ -1,0 +1,17 @@
+[Unit]
+Description=VR Video Pump
+Wants=network-online.target mnt-smb.service
+After=network-online.target mnt-smb.service
+
+[Service]
+Type=simple
+User=vrvideopump
+Group=vrvideopump
+WorkingDirectory=/opt/vrvideopump
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/opt/vrvideopump/.venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 8443 --ssl-keyfile /opt/vrvideopump/certs/key.pem --ssl-certfile /opt/vrvideopump/certs/cert.pem
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,15 @@
+[Unit]
+Description=Mount SMB share for VR Video Pump
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStartPre=/usr/bin/mkdir -p /mnt/vr-videos
+ExecStart=/usr/bin/mount -t cifs //nas.local/Share /mnt/vr-videos -o credentials=/etc/samba/credentials-vrvideopump,uid=1000,gid=1000,iocharset=utf8,rw,vers=3.0
+ExecStop=/usr/bin/umount -l /mnt/vr-videos
+TimeoutSec=10
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,259 @@
+:root {
+  color-scheme: dark;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #101214;
+  color: #f2f5f7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+button,
+select,
+input {
+  font: inherit;
+}
+
+button,
+.headset-link {
+  min-height: 42px;
+  border: 1px solid #4a535b;
+  border-radius: 6px;
+  background: #e8f0f2;
+  color: #111517;
+  padding: 0 16px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.control-body {
+  background: #101214;
+}
+
+.control-shell {
+  width: min(1120px, calc(100vw - 32px));
+  margin: 0 auto;
+  padding: 24px 0 40px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid #293039;
+  padding-bottom: 20px;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 28px;
+}
+
+h2 {
+  font-size: 18px;
+  margin: 28px 0 12px;
+}
+
+#connection {
+  margin-top: 6px;
+  color: #aab5bd;
+}
+
+.video-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.video-card {
+  border: 1px solid #303943;
+  border-radius: 8px;
+  background: #181d22;
+  color: #f2f5f7;
+  padding: 14px;
+  text-align: left;
+}
+
+.video-card.active {
+  border-color: #73d2de;
+  background: #1f2930;
+}
+
+.video-title {
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.video-meta {
+  margin-top: 8px;
+  color: #aab5bd;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.transport {
+  margin-top: 24px;
+  border-top: 1px solid #293039;
+  padding-top: 20px;
+}
+
+.desktop-settings {
+  margin-top: 24px;
+  border-top: 1px solid #293039;
+  padding-top: 20px;
+}
+
+.settings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+}
+
+.settings-wide {
+  grid-column: 1 / -1;
+}
+
+input[type="number"],
+input[type="text"] {
+  min-height: 42px;
+  border: 1px solid #4a535b;
+  border-radius: 6px;
+  background: #181d22;
+  color: #f2f5f7;
+  padding: 0 10px;
+}
+
+.settings-status {
+  margin-top: 12px;
+  color: #aab5bd;
+}
+
+.transport-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  color: #cbd3d8;
+}
+
+select,
+input[type="range"] {
+  accent-color: #73d2de;
+}
+
+select {
+  min-height: 42px;
+  border: 1px solid #4a535b;
+  border-radius: 6px;
+  background: #181d22;
+  color: #f2f5f7;
+  padding: 0 10px;
+}
+
+.wide-label {
+  width: 100%;
+  margin-bottom: 18px;
+}
+
+.inline-check {
+  display: flex;
+  grid-template-columns: none;
+  flex-direction: row;
+  align-items: center;
+}
+
+.headset-body {
+  overflow: hidden;
+  background: #000;
+}
+
+#viewer,
+#viewer canvas {
+  width: 100vw;
+  height: 100vh;
+  display: block;
+}
+
+.headset-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 24px;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgb(0 0 0 / 0.55), rgb(0 0 0 / 0) 45%);
+}
+
+.headset-overlay h1 {
+  font-size: 24px;
+}
+
+.headset-overlay p {
+  margin-top: 8px;
+  color: #d8e0e5;
+}
+
+.diagnostics {
+  max-width: min(520px, calc(100vw - 48px));
+  margin: 10px 0 0;
+  color: #b8f3c5;
+  font: 12px/1.4 ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+  white-space: pre-wrap;
+}
+
+.debug-video {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  width: min(320px, 40vw);
+  max-height: 180px;
+  z-index: 3;
+  border: 1px solid #73d2de;
+  background: #000;
+  opacity: 0.9;
+}
+
+.headset-actions {
+  display: flex;
+  gap: 10px;
+  pointer-events: auto;
+}
+
+@media (max-width: 680px) {
+  .topbar,
+  .headset-overlay {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .headset-actions {
+    flex-wrap: wrap;
+  }
+}

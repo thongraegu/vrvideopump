@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VR Video Pump Control</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body class="control-body">
+    <main class="control-shell">
+      <section class="topbar">
+        <div>
+          <h1>VR Video Pump</h1>
+          <p id="connection">Connecting</p>
+        </div>
+        <a class="headset-link" href="/headset" target="_blank">Headset View</a>
+      </section>
+
+      <section>
+        <h2>Videos</h2>
+        <div id="videoList" class="video-list"></div>
+      </section>
+
+      <section class="desktop-settings">
+        <h2>Desktop Stream</h2>
+        <div class="settings-grid">
+          <label>
+            Codec / acceleration
+            <select id="desktopEncoder">
+              <option value="auto">Auto</option>
+              <option value="h264">H.264 hardware path</option>
+              <option value="vp8">VP8</option>
+            </select>
+          </label>
+          <label>
+            Capture profile
+            <select id="desktopContentHint">
+              <option value="auto">Auto</option>
+              <option value="motion">Motion/video</option>
+              <option value="detail">Desktop detail</option>
+              <option value="text">Text</option>
+            </select>
+          </label>
+          <label>
+            Under pressure
+            <select id="desktopDegradationPreference">
+              <option value="maintain-framerate">Keep smooth fps</option>
+              <option value="maintain-resolution">Keep resolution</option>
+              <option value="balanced">Balanced</option>
+            </select>
+          </label>
+          <label>
+            Width
+            <input id="desktopWidth" type="number" min="320" max="7680" step="16" />
+          </label>
+          <label>
+            Height
+            <input id="desktopHeight" type="number" min="180" max="4320" step="16" />
+          </label>
+          <label>
+            FPS
+            <input id="desktopFps" type="number" min="15" max="144" step="1" />
+          </label>
+          <label>
+            Bitrate Mbps
+            <input id="desktopBitrate" type="number" min="1" max="600" step="1" />
+          </label>
+        </div>
+        <div class="transport-row desktop-share-row">
+          <button id="desktopShare" type="button">Start Browser Capture</button>
+          <span id="desktopShareStatus">Browser capture idle</span>
+        </div>
+        <p id="desktopSettingsStatus" class="settings-status">Loading desktop settings</p>
+      </section>
+
+      <section class="transport">
+        <div class="transport-row">
+          <button id="playPause" type="button">Play</button>
+          <button id="recenter" type="button">Recenter</button>
+          <label>
+            Projection
+            <select id="projection">
+              <option value="180_sbs_lr">180 SBS LR</option>
+              <option value="flat_sbs_lr">Flat SBS LR</option>
+              <option value="180_fisheye_sbs_lr">180 Fisheye SBS LR</option>
+              <option value="360_sbs_lr">360 SBS LR</option>
+            </select>
+          </label>
+        </div>
+
+        <label class="wide-label">
+          Seek
+          <input id="seek" type="range" min="0" max="1" value="0" step="0.01" />
+        </label>
+
+        <div class="transport-row">
+          <label>
+            Volume
+            <input id="volume" type="range" min="0" max="1" value="1" step="0.01" />
+          </label>
+          <label class="inline-check">
+            <input id="muted" type="checkbox" />
+            Muted
+          </label>
+          <span id="time">0:00 / 0:00</span>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="/static/control.js?v=14"></script>
+  </body>
+</html>
